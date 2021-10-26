@@ -30,7 +30,7 @@ export class InfraPipelineStack extends cdk.Stack {
           },
         ),
         installCommands: ['npm i -g pnpm', 'pnpm install'],
-        commands: ['pnpm exec cdk synth'],
+        commands: ['pnpm run synth'],
       }),
     })
 
