@@ -1,0 +1,8 @@
+{
+  "app": "pnpm exec ts-node infra/bin.ts",
+  "requireApproval": "never",
+  "context": {
+    "aws-cdk:enableDiffNoFail": "true",
+    "@aws-cdk/core:newStyleStackSynthesis": true
+  }
+}

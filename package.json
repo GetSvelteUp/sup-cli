@@ -1,0 +1,37 @@
+{
+  "name": "@svelte-up/cli-root",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Cybernetically enhanced cloud deployments.",
+  "homepage": "https://get.svelteup.today",
+  "author": "Michael Edelman <mike.edelman@gmail.com>",
+  "maintainers": [],
+  "scripts": {
+    "build:assets": "node helpers/build-assets.js",
+    "build:infra": "node helpers/build-infra.js",
+    "clean": "pnpm exec rimraf build",
+    "dev:assets": "DEV=true node helpers/build-assets.js",
+    "dev:infra": "DEV=true node helpers/build-infra.js",
+    "pre-cdk": "pnpm run clean && pnpm run build:assets",
+    "synth": "pnpm run pre-cdk && pnpm exec cdk synth",
+    "deploy": "pnpm run pre-cdk && pnpm exec cdk deploy",
+    "destroy": "pnpm exec cdk destroy"
+  },
+  "bugs": {
+    "url": "https://github.com/medelman17/svelte-up/issues"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.84",
+    "@types/node": "^16.11.6",
+    "aws-cdk": "^2.0.0-rc.26",
+    "aws-cdk-lib": "^2.0.0-rc.26",
+    "constructs": "^10.0.9",
+    "esbuild": "^0.13.7",
+    "execa": "^5.1.1",
+    "glob": "^7.2.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}

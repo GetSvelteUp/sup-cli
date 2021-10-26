@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": "./assets/",
+    "paths": {},
+    "noEmit": true,
+    "target": "ES2015"
+  },
+  "include": ["assets"],
+
+  "exclude": ["**/dist", "**/build", "**/node_modules", "**/infra"]
+}
