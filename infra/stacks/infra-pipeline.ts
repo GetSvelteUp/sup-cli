@@ -21,6 +21,12 @@ export class InfraPipelineStack extends cdk.Stack {
     const pipeline = new pipelines.CodePipeline(this, 'Pipeline', {
       selfMutation: false,
       crossAccountKeys: true,
+      codeBuildDefaults: {
+        buildEnvironment: {
+          buildImage: cb.LinuxBuildImage.AMAZON_LINUX_2_ARM_2,
+          computeType: cb.ComputeType.LARGE,
+        },
+      },
       synthCodeBuildDefaults: {
         buildEnvironment: {
           buildImage: cb.LinuxBuildImage.AMAZON_LINUX_2_ARM_2,
