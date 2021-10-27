@@ -12,8 +12,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "useUnknownInCatchVariables": false,
-    "skipDefaultLibCheck": true,
-    "noEmit": true
+    "skipDefaultLibCheck": true
   },
   "exclude": ["**/dist", "**/node_modules", "**/src/__tests__", "**/assets"]
 }

@@ -7,6 +7,7 @@
   "author": "Michael Edelman <mike.edelman@gmail.com>",
   "maintainers": [],
   "scripts": {
+    "build": "pnpm exec turbo run build",
     "build:assets": "node helpers/build-assets.js",
     "build:infra": "node helpers/build-infra.js",
     "clean": "pnpm exec rimraf build",
@@ -16,6 +17,16 @@
     "synth": "pnpm run pre-cdk && pnpm exec cdk synth",
     "deploy": "pnpm run pre-cdk && pnpm exec cdk deploy",
     "destroy": "pnpm exec cdk destroy"
+  },
+  "turbo": {
+    "baseBranch": "origin/main",
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ]
+      }
+    }
   },
   "bugs": {
     "url": "https://github.com/medelman17/svelte-up/issues"
@@ -32,6 +43,7 @@
     "glob": "^7.2.0",
     "rimraf": "^3.0.2",
     "ts-node": "^10.4.0",
+    "turbo": "^0.8.4",
     "typescript": "^4.4.4"
   }
 }
