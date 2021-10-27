@@ -21,6 +21,12 @@ export class InfraPipelineStack extends cdk.Stack {
     const pipeline = new pipelines.CodePipeline(this, 'Pipeline', {
       selfMutation: false,
       crossAccountKeys: true,
+      synthCodeBuildDefaults: {
+        buildEnvironment: {
+          buildImage: cb.LinuxBuildImage.AMAZON_LINUX_2_ARM_2,
+          computeType: cb.ComputeType.LARGE,
+        },
+      },
       synth: new pipelines.ShellStep('Synth', {
         input: pipelines.CodePipelineSource.connection(
           'GetSvelteUp/sup-cli',

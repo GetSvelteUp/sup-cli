@@ -52,6 +52,7 @@ echo ""
 export RUSTC_WRAPPER="$TEMPDIR/bin/sccache"
 
 rustup target add $TARGET 
+cargo install toml-cli
 
 for CONFIG in $(find ./assets/rs -maxdepth 2 -name Cargo.toml)
 do 
