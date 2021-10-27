@@ -34,22 +34,11 @@ export class InfraPipelineStack extends cdk.Stack {
       }),
     })
 
-    pipeline.addStage(
-      new Stages.ArtifactsStage(this, 'ArtifactsProd', {
-        env: {
-          region: 'us-east-1',
-          account: this.node.tryGetContext('artifactsAccountId'),
-        },
-      }),
-    )
+    const wave = pipeline.addWave('InfraStages', {
+      pre: [],
+      post: [],
+    })
 
-    pipeline.addStage(
-      new Stages.CICDStage(this, 'CICDProd', {
-        env: {
-          region: 'us-east-1',
-          account: this.node.tryGetContext('opsAccountId'),
-        },
-      }),
-    )
+    wave.addStage(new Stages.ControlPlane(this, 'ControlPlane', {}))
   }
 }

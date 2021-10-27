@@ -9,7 +9,7 @@
   "scripts": {
     "build": "pnpm exec turbo run build",
     "test": "pnpm exec turbo run test",
-    "build:assets": "node helpers/build-assets.js",
+    "build:assets": "pnpm exec ./scripts/build-rust-assets.sh",
     "build:infra": "node helpers/build-infra.js",
     "clean": "pnpm exec rimraf build",
     "dev:assets": "DEV=true node helpers/build-assets.js",
@@ -39,6 +39,8 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
+    "@aws-cdk/aws-apigatewayv2-alpha": "^2.0.0-alpha.3",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.0.0-alpha.3",
     "@types/aws-lambda": "^8.10.84",
     "@types/node": "^16.11.6",
     "aws-cdk": "^2.0.0-rc.26",
@@ -46,6 +48,7 @@
     "constructs": "^10.0.9",
     "esbuild": "^0.13.7",
     "execa": "^5.1.1",
+    "fs-jetpack": "^4.2.0",
     "glob": "^7.2.0",
     "rimraf": "^3.0.2",
     "ts-node": "^10.4.0",

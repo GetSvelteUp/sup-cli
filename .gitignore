@@ -29,3 +29,6 @@ pnpm-debug.log
 
 cdk.out
 .turbo
+
+target
+.tmp
