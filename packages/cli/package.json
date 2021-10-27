@@ -24,7 +24,7 @@
     "prepublishOnly": "pnpm run build",
     "package:linux": "pkg . --no-bytecode --targets node14-linux-x64 --output dist/linux/sup --compress GZip",
     "package:macos": "pkg . --no-bytecode --targets node14-macos-x64 --output dist/macos/sup --compress GZip",
-    "test": "ava",
+    "test": "jest --maxConcurrency=1 --verbose",
     "test:ci": "nyc ava --fail-fast",
     "test:watch": "ava --watch"
   },

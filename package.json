@@ -8,6 +8,7 @@
   "maintainers": [],
   "scripts": {
     "build": "pnpm exec turbo run build",
+    "test": "pnpm exec turbo run test",
     "build:assets": "node helpers/build-assets.js",
     "build:infra": "node helpers/build-infra.js",
     "clean": "pnpm exec rimraf build",
@@ -21,6 +22,11 @@
   "turbo": {
     "baseBranch": "origin/main",
     "pipeline": {
+      "test": {
+        "dependsOn": [
+          "build"
+        ]
+      },
       "build": {
         "dependsOn": [
           "^build"
