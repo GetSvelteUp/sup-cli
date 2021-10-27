@@ -13,7 +13,11 @@ export class ControlPlaneDataLayer extends cdk.Stack {
 
   constructor(scope: Construct, id: string, props: any) {
     super(scope, id, props)
-    this.table = new dynamodb.Table(this, 'ControlPlaneData', {})
+    this.table = new dynamodb.Table(this, 'ControlPlaneData', {
+      partitionKey: { name: 'pk', type: dynamodb.AttributeType.STRING },
+      sortKey: { name: 'sk', type: dynamodb.AttributeType.STRING },
+      billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+    })
   }
 }
 
